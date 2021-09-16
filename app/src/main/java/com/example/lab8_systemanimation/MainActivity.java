@@ -10,17 +10,21 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     @Override
+    // Метод, который вызывается, когда приложение создает и отображает Activity
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        super.onCreate(savedInstanceState); // вызов метода родительского класса
+        setContentView(R.layout.activity_main); // устанавливаем содержимое Activity из layout-файла
 
+        // Определяем необходимые элементы управления
         Button button = (Button) findViewById(R.id.button);
         Button button2 = (Button) findViewById(R.id.button2);
 
+        // Разграничиваем кнопки для дальнейшний обработки
         button.setOnClickListener(onClickListener(1));
         button2.setOnClickListener(onClickListener(2));
     }
 
+    // Обработка нажатия на кнопки
     private View.OnClickListener onClickListener (final int style) {
         return new View.OnClickListener() {
             @Override
@@ -31,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 
+    // Создание диалогового окна
     private void buildDialog (int animationSource, String type) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Диалоговое окно");
